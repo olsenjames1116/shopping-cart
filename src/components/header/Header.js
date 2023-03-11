@@ -7,6 +7,9 @@ export default function Header() {
     }, []);
 
     return (
-        <Nav />
+        <div className='header'>
+            <h1>Jim Class</h1>
+            <Nav />
+        </div>
     );
 }
