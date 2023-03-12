@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Item from '../item/Item';
+import { Link } from 'react-router-dom';
 
 export default function CheckoutPage({cart, updateCart, clearCart}) {
     const [total, setTotal] = useState(0);
@@ -42,6 +43,9 @@ export default function CheckoutPage({cart, updateCart, clearCart}) {
             </ul>
             <span>Total: {total}</span>
             <button type='button' onClick={checkout}>Pay</button>
+            <Link to='/shop'>
+                <button type='button'>Return to Shop</button>
+            </Link>
         </div>
     );
 }
