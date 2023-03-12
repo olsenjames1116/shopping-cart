@@ -1,7 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Item from '../item/Item';
 
 export default function CheckoutPage({cart, updateCart}) {
+    const [total, setTotal] = useState(0);
+
     useEffect(() => {
         const itemQuantities = document.querySelectorAll('input#quantity');
 
@@ -20,6 +22,11 @@ export default function CheckoutPage({cart, updateCart}) {
         }
     }, []);
 
+    useEffect(() => {
+        const totalSum = cart.reduce((total, current) => total + current.price * current.quantity, 0);
+        setTotal(totalSum);
+    }, [cart])
+
     return (
         <div className='checkout'>
             <h2>Your Cart</h2>
@@ -28,6 +35,7 @@ export default function CheckoutPage({cart, updateCart}) {
                     cart.map((item) => <Item key={item.id} item={item} quantity={true} />)
                 }
             </ul>
+            <span>Total: {total}</span>
         </div>
     );
 }
