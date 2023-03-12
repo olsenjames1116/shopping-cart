@@ -13,7 +13,7 @@ export default function RouteSwitch({items}) {
         <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/shop" element={<ShopPage items={items}/>} />
-            {/* <Route path="/shop/:id" element={<ItemPage />} /> */}
+            <Route path="/shop/:id" element={<ItemPage items={items}/>} />
             <Route path="/checkout" element={<CheckoutPage />} />
         </Routes>
     </BrowserRouter>
