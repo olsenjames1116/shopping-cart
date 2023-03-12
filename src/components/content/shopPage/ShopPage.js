@@ -1,8 +1,14 @@
 import React from 'react';
 import Item from '../item/Item';
 
-export default function ShopPage() {
+export default function ShopPage({items}) {
     return (
-        <p>This is the shop page</p>
+        <ul className='shop'>
+            {
+                items.map((item) => {
+                    return <Item item={item} quantity={false}/>
+                })
+            }
+        </ul>
     );
 }
