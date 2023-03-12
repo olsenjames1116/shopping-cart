@@ -135,9 +135,18 @@ export default function App() {
     setItems([...items.slice(0, index), Object.assign({}, {...items[index]}, {quantity: parseInt(cartQuantity.value)}), ...items.slice(index + 1)]);
   }
 
+  function updateCart(event) {
+    const quantityChange = event.target.value;
+
+    const index = items.findIndex((item) => item.name === event.target.className);
+    console.log(index)
+    
+    setItems([...items.slice(0, index), Object.assign({}, {...items[index]}, {quantity: parseInt(quantityChange)}), ...items.slice(index + 1)]);
+  }
+
   return (
     <div className='app'>
-      <RouteSwitch items={items} cart={cart} addToCart={addToCart}/>
+      <RouteSwitch items={items} cart={cart} addToCart={addToCart} updateCart={updateCart} />
       <Footer />
     </div>
   );
