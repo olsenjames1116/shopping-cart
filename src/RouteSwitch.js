@@ -6,14 +6,14 @@ import ShopPage from './components/content/shopPage/ShopPage';
 import ItemPage from './components/content/shopPage/itemPage/ItemPage';
 import CheckoutPage from './components/content/checkoutPage/CheckoutPage';
 
-export default function RouteSwitch({items}) {
+export default function RouteSwitch({items, addToCart}) {
   return (
     <BrowserRouter>
         <Header />
         <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/shop" element={<ShopPage items={items}/>} />
-            <Route path="/shop/:id" element={<ItemPage items={items}/>} />
+            <Route path="/shop/:id" element={<ItemPage items={items} addToCart={addToCart} />} />
             <Route path="/checkout" element={<CheckoutPage />} />
         </Routes>
     </BrowserRouter>

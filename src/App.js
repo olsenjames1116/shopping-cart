@@ -113,9 +113,19 @@ export default function App() {
     },
   ]);
 
+  function addToCart() {
+    const cartQuantity = document.querySelector('input#quantity');
+
+    const productName = document.querySelector('li>span:nth-child(2)');
+
+    const index = items.findIndex((item) => item.name === productName.textContent);
+    
+    setItems([...items.slice(0, index), Object.assign({}, {...items[index]}, {quantity: parseInt(cartQuantity.value)}), ...items.slice(index + 1)]);
+  }
+
   return (
     <div className='app'>
-      <RouteSwitch items={items}/>
+      <RouteSwitch items={items} addToCart={addToCart}/>
       <Footer />
     </div>
   );
