@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import RouteSwitch from './RouteSwitch';
 import Footer from './components/footer/Footer';
 import uniqid from 'uniqid';
@@ -112,6 +112,17 @@ export default function App() {
       quantity: 0
     },
   ]);
+
+  const [cart, setCart] = useState([]);
+
+  function manageCart() {
+    const cartProducts = items.filter((item) => item.quantity > 0);
+    setCart(cartProducts);
+  }
+
+  useEffect(() => {
+    manageCart();
+  }, [items]);
 
   function addToCart() {
     const cartQuantity = document.querySelector('input#quantity');
