@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Item from '../item/Item';
 
-export default function CheckoutPage({cart, updateCart}) {
+export default function CheckoutPage({cart, updateCart, clearCart}) {
     const [total, setTotal] = useState(0);
 
     useEffect(() => {
@@ -25,7 +25,12 @@ export default function CheckoutPage({cart, updateCart}) {
     useEffect(() => {
         const totalSum = cart.reduce((total, current) => total + current.price * current.quantity, 0);
         setTotal(totalSum);
-    }, [cart])
+    }, [cart]);
+
+    function checkout() {
+        clearCart();
+        alert('Thank you for your purchase!');
+    }
 
     return (
         <div className='checkout'>
@@ -36,6 +41,7 @@ export default function CheckoutPage({cart, updateCart}) {
                 }
             </ul>
             <span>Total: {total}</span>
+            <button type='button' onClick={checkout}>Pay</button>
         </div>
     );
 }
