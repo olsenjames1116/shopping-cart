@@ -117,6 +117,7 @@ export default function App() {
 
   function manageCart() {
     const cartProducts = items.filter((item) => item.quantity > 0);
+   
     setCart(cartProducts);
   }
 
@@ -136,7 +137,7 @@ export default function App() {
 
   return (
     <div className='app'>
-      <RouteSwitch items={items} addToCart={addToCart}/>
+      <RouteSwitch items={items} cart={cart} addToCart={addToCart}/>
       <Footer />
     </div>
   );

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Cart from './Cart';
 
-export default function Nav() {
+export default function Nav({cart}) {
     return (
         <ul>
             <li>
@@ -12,7 +12,7 @@ export default function Nav() {
                 <Link to='/shop'>Shop</Link>
             </li>
             <li>
-                <Link to='/checkout'><Cart /></Link>
+                <Link to='/checkout'><Cart cart={cart} /></Link>
             </li>
         </ul>
     );
