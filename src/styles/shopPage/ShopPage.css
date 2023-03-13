@@ -1,0 +1,39 @@
+ul.shop {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 75px;
+  margin: 0;
+  padding: 75px;
+}
+
+ul.shop > a {
+  text-decoration: none;
+}
+
+ul.shop > a > li {
+  background: linear-gradient(90deg, rgb(0, 0, 0), rgb(181, 181, 181));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+ul.shop > a > li:hover {
+  background: var(--button-hover-color);
+}
+
+ul.shop > a > li > img {
+  width: 100%;
+  height: 275px;
+}
+
+ul.shop > a > li > img:hover {
+  filter: grayscale(100%);
+}
+
+ul.shop > a > li > span {
+  color: white;
+  font-size: 2rem;
+  padding: 10px;
+}
