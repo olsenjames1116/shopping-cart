@@ -123,28 +123,7 @@ export default function App() {
     const cartProducts = items.filter((item) => item.quantity > 0);
     
     setCart(cartProducts);
-    // cartProducts.forEach((product) => {
-    //   const index = cart.findIndex((item) => item.id === product.id);
-
-    //   if(index === -1) {
-    //     setCart((prevState) => [...prevState.concat(product)]);
-    //   } else {
-    //     if(index === 0) {
-    //       setCart((prevState) => [Object.assign({}, {...prevState[index]}, {quantity: product.quantity}), ...prevState.slice(index + 1)]);
-    //     } else {
-    //       setCart((prevState) => [...prevState.slice(0, index), Object.assign({}, {...prevState[index]}, {quantity: product.quantity}), ...prevState.slice(index + 1)]);
-    //     }
-    //   }
-    // });
   }, [items])
-
-  // useEffect(() => {
-  //   console.table(items);
-  //   const cartProducts = items.filter((item) => item.quantity > 0);
-  //   console.table(cartProducts);
-  //   const index = cart.findIndex((item) => item.)
-  //   setCart();
-  // }, [items]);
 
   function addToCart() {
     const cartQuantity = document.querySelector('input');
@@ -154,13 +133,6 @@ export default function App() {
     const index = items.findIndex((item) => item.name === productName.textContent);
 
     setItems((prevState) => [...prevState.slice(0, index), Object.assign({}, {...prevState[index]}, {quantity: parseInt(cartQuantity.value)}), ...prevState.slice(index + 1)]);
-    
-    // const cartIndex = cart.findIndex((item) => item.name = productName.textContent);
-    // if(cartIndex === -1) {
-    //   setCart((prevState) => [...prevState.concat(items[itemsIndex])]);
-    // } else {
-    //   setCart((prevState) => [...prevState.slice(0, cartIndex), Object.assign({}, {...prevState[cartIndex]}, {quantity: parseInt(cartQuantity.value)}), ...prevState.slice(cartIndex + 1)]);
-    // }
   }
 
   function updateCart(event) {
@@ -171,13 +143,19 @@ export default function App() {
     setItems((prevState) => [...prevState.slice(0, index), Object.assign({}, {...prevState[index]}, {quantity: parseInt(quantityChange)}), ...prevState.slice(index + 1)]);
   }
 
+  function removeFromCart(event) {
+    const index = items.findIndex((item) => item.id === event.target.parentNode.id);
+
+    setItems((prevState) => [...prevState.slice(0, index), Object.assign({}, {...prevState[index]}, {quantity: 0}), ...prevState.slice(index + 1)]);
+  }
+
   function clearCart() {
     setCart([]);
   }
 
   return (
     <div className='app'>
-      <RouteSwitch items={items} cart={cart} addToCart={addToCart} updateCart={updateCart} clearCart={clearCart} />
+      <RouteSwitch items={items} cart={cart} addToCart={addToCart} updateCart={updateCart} clearCart={clearCart} removeFromCart={removeFromCart} />
       <Footer />
     </div>
   );

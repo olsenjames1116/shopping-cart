@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import Item from '../item/Item';
 import { Link } from 'react-router-dom';
+import CheckoutButton from './CheckoutButton';
 
-export default function CheckoutPage({cart, updateCart, clearCart}) {
+export default function CheckoutPage({cart, updateCart, clearCart, removeFromCart}) {
     const [total, setTotal] = useState(0);
 
     useEffect(() => {
@@ -28,21 +29,20 @@ export default function CheckoutPage({cart, updateCart, clearCart}) {
         setTotal(totalSum);
     }, [cart]);
 
-    function checkout() {
-        clearCart();
-        alert('Thank you for your purchase!');
-    }
-
     return (
         <div className='checkout'>
             <h2>Your Cart</h2>
             <ul>
                 {
-                    cart.map((item) => <Item key={item.id} item={item} quantity={true} />)
+                    cart.map((item) => {
+                        return (
+                            <Item key={item.id} item={item} quantity={true} remove={true} removeFromCart={removeFromCart} />
+                        );
+                    })
                 }
             </ul>
             <span>Total: {total}</span>
-            <button type='button' onClick={checkout}>Pay</button>
+            <CheckoutButton clearCart={clearCart} />
             <Link to='/shop'>
                 <button type='button'>Return to Shop</button>
             </Link>
