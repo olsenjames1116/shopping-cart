@@ -2,3 +2,11 @@ div.cart {
   display: flex;
   align-items: center;
 }
+
+div.cart > img {
+  filter: var(--icon-filter);
+}
+
+div.cart > img:hover {
+  filter: var(--hover-filter);
+}

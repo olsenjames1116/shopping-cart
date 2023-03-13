@@ -1,0 +1,17 @@
+div.homePage > button > a {
+  text-decoration: none;
+  color: white;
+}
+
+div.homePage > button {
+  width: 75%;
+  height: 100px;
+  align-self: center;
+  font-size: 4rem;
+  background-color: var(--button-color);
+  border: 0;
+}
+
+div.homePage > button:hover {
+  background-color: var(--button-hover-color);
+}

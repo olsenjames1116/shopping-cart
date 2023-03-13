@@ -1,10 +1,11 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import '../../../styles/homePage/ShopButton.css';
 
 export default function ShopButton() {
     return (
-        <Link to='/shop'>
-            <button type='button'>Visit The Shop</button>
-        </Link>
+            <button type='button'>
+                <Link to='/shop'>Visit The Shop</Link>
+            </button>
     );
 }
