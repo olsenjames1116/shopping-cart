@@ -30,7 +30,7 @@ export default function CheckoutPage({cart, updateCart, clearCart, removeFromCar
     }, [cart]);
 
     return (
-        <div className='checkout'>
+        <div className='checkout content'>
             <h2>Your Cart</h2>
             <ul>
                 {

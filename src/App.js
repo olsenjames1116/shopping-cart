@@ -3,6 +3,7 @@ import RouteSwitch from './RouteSwitch';
 import Footer from './components/footer/Footer';
 import uniqid from 'uniqid';
 import {Barbell, Dumbbells, Gloves, JumpRope, Kettlebell, MedicineBall, Plates, Protein, Ropes, Rowing, Shaker, Shoes, SquatRack, Watch, Yoga} from './images/index';
+import './styles/App.css';
 
 export default function App() {
   const [items, setItems] = useState([

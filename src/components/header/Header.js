@@ -1,5 +1,6 @@
 import React from 'react';
 import Nav from './nav/Nav';
+import '../../styles/header/Header.css';
 
 export default function Header({cart}) {
     return (

@@ -1,0 +1,13 @@
+ul.nav {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  gap: 50px;
+  margin: 0;
+  font-size: 2rem;
+}
+
+ul.nav > li {
+  display: flex;
+  align-items: center;
+}

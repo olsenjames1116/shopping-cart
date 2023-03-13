@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 
 export default function ShopPage({items}) {
     return (
-        <ul className='shop'>
+        <ul className='shop content'>
             {
                 items.map((item) => {
                     return (
