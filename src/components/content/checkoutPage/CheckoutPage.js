@@ -6,7 +6,7 @@ export default function CheckoutPage({cart, updateCart, clearCart}) {
     const [total, setTotal] = useState(0);
 
     useEffect(() => {
-        const itemQuantities = document.querySelectorAll('input#quantity');
+        const itemQuantities = document.querySelectorAll('input');
 
         itemQuantities.forEach((quantity) => {
             quantity.addEventListener('change', (event) => {

@@ -93,7 +93,7 @@ export default function App() {
     {
       id: uniqid(),
       image: SquatRack,
-      name: 'Barbell',
+      name: 'Squat Rack',
       price: 750,
       quantity: 0
     },
@@ -115,33 +115,60 @@ export default function App() {
 
   const [cart, setCart] = useState([]);
 
-  function manageCart() {
-    const cartProducts = items.filter((item) => item.quantity > 0);
-   
-    setCart(cartProducts);
-  }
+  useEffect(() => {
+    console.table(cart);
+  }, [cart])
 
   useEffect(() => {
-    manageCart();
-  }, [items]);
+    const cartProducts = items.filter((item) => item.quantity > 0);
+    
+    setCart(cartProducts);
+    // cartProducts.forEach((product) => {
+    //   const index = cart.findIndex((item) => item.id === product.id);
+
+    //   if(index === -1) {
+    //     setCart((prevState) => [...prevState.concat(product)]);
+    //   } else {
+    //     if(index === 0) {
+    //       setCart((prevState) => [Object.assign({}, {...prevState[index]}, {quantity: product.quantity}), ...prevState.slice(index + 1)]);
+    //     } else {
+    //       setCart((prevState) => [...prevState.slice(0, index), Object.assign({}, {...prevState[index]}, {quantity: product.quantity}), ...prevState.slice(index + 1)]);
+    //     }
+    //   }
+    // });
+  }, [items])
+
+  // useEffect(() => {
+  //   console.table(items);
+  //   const cartProducts = items.filter((item) => item.quantity > 0);
+  //   console.table(cartProducts);
+  //   const index = cart.findIndex((item) => item.)
+  //   setCart();
+  // }, [items]);
 
   function addToCart() {
-    const cartQuantity = document.querySelector('input#quantity');
+    const cartQuantity = document.querySelector('input');
 
     const productName = document.querySelector('li>span:nth-child(2)');
 
     const index = items.findIndex((item) => item.name === productName.textContent);
+
+    setItems((prevState) => [...prevState.slice(0, index), Object.assign({}, {...prevState[index]}, {quantity: parseInt(cartQuantity.value)}), ...prevState.slice(index + 1)]);
     
-    setItems([...items.slice(0, index), Object.assign({}, {...items[index]}, {quantity: parseInt(cartQuantity.value)}), ...items.slice(index + 1)]);
+    // const cartIndex = cart.findIndex((item) => item.name = productName.textContent);
+    // if(cartIndex === -1) {
+    //   setCart((prevState) => [...prevState.concat(items[itemsIndex])]);
+    // } else {
+    //   setCart((prevState) => [...prevState.slice(0, cartIndex), Object.assign({}, {...prevState[cartIndex]}, {quantity: parseInt(cartQuantity.value)}), ...prevState.slice(cartIndex + 1)]);
+    // }
   }
 
   function updateCart(event) {
     const quantityChange = event.target.value;
 
-    const index = items.findIndex((item) => item.name === event.target.className);
-    console.log(index)
+    const index = items.findIndex((item) => item.id === event.target.id);
     
-    setItems([...items.slice(0, index), Object.assign({}, {...items[index]}, {quantity: parseInt(quantityChange)}), ...items.slice(index + 1)]);
+    setItems((prevState) => [...prevState.slice(0, index), Object.assign({}, {...prevState[index]}, {quantity: parseInt(quantityChange)}), ...prevState.slice(index + 1)]);
   }
 
   function clearCart() {

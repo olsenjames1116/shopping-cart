@@ -1,16 +1,18 @@
 import React from 'react';
 
-export default function Quantity({quantity, name}) {
+export default function Quantity({quantity, id}) {
     function checkValidity(event) {
-        let input = parseInt(event.target.value)
+        const input = parseInt(event.target.value);
+        const max = parseInt(event.target.max);
+        const min = parseInt(event.target.min);
 
-        if(input > 99) event.target.value = 99;
-        if(input < 0) event.target.value = 0;
+        if(input > max) event.target.value = max;
+        if(input < min) event.target.value = min;
     }
 
     return (
         <form onSubmit={(event) => event.preventDefault()}>
-            <input className={name} type='number' id='quantity' min='0' max='99' placeholder={quantity} onChange={checkValidity} />
+            <input id={id} type='number' min='0' max='99' placeholder={quantity} onChange={checkValidity} />
         </form>
     );
 }

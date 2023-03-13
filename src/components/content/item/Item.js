@@ -7,7 +7,7 @@ export default function Item({item, quantity}) {
             <img src={item.image} alt={item.name} />
             <span>{item.name}</span>
             <span>{item.price}</span>
-            {quantity && <Quantity name={item.name} quantity={item.quantity} />}
+            {quantity && <Quantity id={item.id} quantity={item.quantity} />}
         </li>
     );
 }
