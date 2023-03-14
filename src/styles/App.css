@@ -8,10 +8,6 @@
   --button-color: black;
 }
 
-* {
-  outline: 1px solid black;
-}
-
 html {
   background: url("../images/background.jpg") no-repeat center center fixed;
   background-size: cover;

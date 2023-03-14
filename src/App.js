@@ -6,7 +6,7 @@ import {Barbell, Dumbbells, Gloves, JumpRope, Kettlebell, MedicineBall, Plates, 
 import './styles/App.css';
 
 export default function App() {
-  const [items, setItems] = useState([
+  const initialState = [
     {
       id: uniqid(),
       image: Barbell,
@@ -112,7 +112,9 @@ export default function App() {
       price: 20,
       quantity: 0
     },
-  ]);
+  ];
+
+  const [items, setItems] = useState(initialState);
 
   const [cart, setCart] = useState([]);
 
@@ -151,7 +153,7 @@ export default function App() {
   }
 
   function clearCart() {
-    setCart([]);
+    setItems(initialState);
   }
 
   return (

@@ -107,3 +107,7 @@ div.checkout > a > button:last-child {
   height: 25px;
   font-size: 1.2rem;
 }
+
+div.checkout > a > button:last-child:hover {
+  background-color: rgb(204, 204, 204);
+}
