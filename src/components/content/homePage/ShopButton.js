@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import '../../../styles/homePage/ShopButton.css';
+import '../../../styles/content/homePage/ShopButton.css';
 
 export default function ShopButton() {
     return (

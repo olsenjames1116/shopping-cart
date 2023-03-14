@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Item from '../../item/Item';
-import '../../../../styles/shopPage/itemPage/ItemPage.css';
+import '../../../../styles/content/shopPage/itemPage/ItemPage.css';
 
 export default function ItemPage({items, addToCart}) {
     const {id} = useParams();

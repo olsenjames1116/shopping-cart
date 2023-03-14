@@ -1,7 +1,7 @@
 import React from 'react';
 import Item from '../item/Item';
 import {Link} from 'react-router-dom';
-import '../../../styles/shopPage/ShopPage.css';
+import '../../../styles/content/shopPage/ShopPage.css';
 
 export default function ShopPage({items}) {
     return (

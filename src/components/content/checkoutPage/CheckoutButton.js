@@ -7,6 +7,6 @@ export default function CheckoutButton({clearCart}) {
     }
 
     return (
-        <button type='button' onClick={checkout}>Pay</button>
+        <button type='button' onClick={checkout}>Proceed to Checkout</button>
     );
 }

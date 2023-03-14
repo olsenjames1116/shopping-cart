@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Item from '../item/Item';
 import { Link } from 'react-router-dom';
 import CheckoutButton from './CheckoutButton';
+import '../../../styles/content/checkoutPage/CheckoutPage.css';
 
 export default function CheckoutPage({cart, updateCart, clearCart, removeFromCart}) {
     const [total, setTotal] = useState(0);
@@ -41,7 +42,7 @@ export default function CheckoutPage({cart, updateCart, clearCart, removeFromCar
                     })
                 }
             </ul>
-            <span>Total: {total}</span>
+            <span className='total'>Total: ${total}</span>
             <CheckoutButton clearCart={clearCart} />
             <Link to='/shop'>
                 <button type='button'>Return to Shop</button>

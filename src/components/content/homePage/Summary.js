@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../../styles/homePage/Summary.css';
+import '../../../styles/content/homePage/Summary.css';
 
 export default function Summary() {
     return (
