@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Item from '../../item/Item';
+import '../../../../styles/shopPage/itemPage/ItemPage.css';
 
 export default function ItemPage({items, addToCart}) {
     const {id} = useParams();
@@ -8,7 +9,7 @@ export default function ItemPage({items, addToCart}) {
     const item = items.find((item) => item.id === id);
     
     return (
-        <div className='item content'>
+        <div className='itemPage content'>
             <Item item={item} quantity={true} />
             <button type='button' onClick={addToCart}>Add to Cart</button>
             <Link to='/shop'>

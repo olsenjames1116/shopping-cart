@@ -1,0 +1,70 @@
+div.itemPage {
+  list-style-type: none;
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 50px;
+}
+
+div.itemPage > li {
+  display: grid;
+  font-size: 3rem;
+  background-color: black;
+  color: white;
+}
+
+div.itemPage > li > img {
+  grid-area: 1 / 1 / 4 / 2;
+}
+
+div.itemPage > li > span:nth-child(2) {
+  grid-area: 1 / 2 / 2 / 3;
+}
+
+div.itemPage > li > span {
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+div.itemPage > li > form {
+  display: flex;
+  justify-content: center;
+}
+
+div.itemPage > li > form > input {
+  font-size: 3rem;
+  text-align: center;
+  height: 50px;
+  width: 200px;
+}
+
+div.itemPage > button {
+  width: 50%;
+  height: 50px;
+  font-size: 2rem;
+  align-self: center;
+  border: 0;
+  background-color: var(--button-color);
+  color: white;
+}
+
+div.itemPage > button:hover {
+  background-color: var(--button-hover-color);
+}
+
+div.itemPage > a {
+  align-self: center;
+}
+
+div.itemPage > a > button {
+  background-color: white;
+  border: 0;
+  font-size: 2rem;
+  height: 50px;
+}
+
+div.itemPage > a > button:hover {
+  background-color: rgb(204, 204, 204);
+}
