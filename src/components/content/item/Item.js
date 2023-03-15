@@ -2,6 +2,7 @@ import React from 'react';
 import Quantity from './Quantity';
 import RemoveButton from './RemoveButton';
 
+// Used to display items in the shop, item page and checkout page
 export default function Item({item, quantity, remove, removeFromCart}) {
     return (
         <li id={item.id}>

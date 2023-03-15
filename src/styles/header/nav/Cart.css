@@ -4,6 +4,8 @@ div.cart {
 }
 
 div.cart > img {
+  height: 50px;
+  width: auto;
   filter: var(--icon-filter);
 }
 

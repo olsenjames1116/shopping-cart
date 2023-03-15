@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Cart from './Cart';
 import '../../../styles/header/nav/Nav.css';
 
+// Represents the navigation section in the header
 export default function Nav({cart}) {
     return (
         <ul className='nav'>

@@ -6,6 +6,7 @@ import {Barbell, Dumbbells, Gloves, JumpRope, Kettlebell, MedicineBall, Plates, 
 import './styles/App.css';
 
 export default function App() {
+  // Initial state for all shop items
   const initialState = [
     {
       id: uniqid(),
@@ -114,20 +115,19 @@ export default function App() {
     },
   ];
 
+  // State for both the items and cart are stored here
   const [items, setItems] = useState(initialState);
 
   const [cart, setCart] = useState([]);
 
-  useEffect(() => {
-    console.table(cart);
-  }, [cart])
-
+  // Update the cart whenever items are updated. An item with a quantity greater than 0 is added to the cart
   useEffect(() => {
     const cartProducts = items.filter((item) => item.quantity > 0);
     
     setCart(cartProducts);
   }, [items])
 
+  // Add a new item to the cart by changing the quantity in the item state
   function addToCart() {
     const cartQuantity = document.querySelector('input');
 
@@ -138,6 +138,7 @@ export default function App() {
     setItems((prevState) => [...prevState.slice(0, index), Object.assign({}, {...prevState[index]}, {quantity: parseInt(cartQuantity.value)}), ...prevState.slice(index + 1)]);
   }
 
+  // An item that is already in the cart has their quantity changed. Updates the cart to reflect that
   function updateCart(event) {
     const quantityChange = event.target.value;
 
@@ -146,12 +147,14 @@ export default function App() {
     setItems((prevState) => [...prevState.slice(0, index), Object.assign({}, {...prevState[index]}, {quantity: parseInt(quantityChange)}), ...prevState.slice(index + 1)]);
   }
 
+  // An item from the cart has been removed from the cart
   function removeFromCart(event) {
     const index = items.findIndex((item) => item.id === event.target.parentNode.id);
 
     setItems((prevState) => [...prevState.slice(0, index), Object.assign({}, {...prevState[index]}, {quantity: 0}), ...prevState.slice(index + 1)]);
   }
 
+  // Clears the cart on checkout
   function clearCart() {
     setItems(initialState);
   }
